@@ -11,7 +11,7 @@ class Solution:
         for i in range(len(nums) -1,-1,-1):#[]
             res[i] *= postfix  # [24,12,8,6]
             postfix *= nums[i] #postfix =24*1
-        return res
+        return res #[24, 12,8, 6]
 
         
 def main():
