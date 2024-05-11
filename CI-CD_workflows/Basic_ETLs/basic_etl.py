@@ -24,7 +24,7 @@ if response.status_code == 200:
   res_arr = response.json()
   sorted_res= sort(res_arr, 'rating')
   df = pd.DataFrame(sorted_res)
-  df.to_excel('CI-CD_workflows/Basic_ETLs/data/sorted_movies.xlsx', index=False)
+  df.to_excel('/CI-CD_workflows/Basic_ETLs/data/sorted_movies.xlsx', index=False)
   print("Data stores to stored_movies.xlsx")
 else:
     print(':)')
