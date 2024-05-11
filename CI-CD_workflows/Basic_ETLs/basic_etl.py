@@ -27,9 +27,9 @@ if response.status_code == 200:
   df.to_excel('sorted_movies.xlsx', index=False)
   print("Data stores to stored_movies.xlsx")
   print(sorted_res)
+  df = pd.DataFrame(sorted_res)
+  df.to_excel('sorted_movies.xlsx', index=False)
+  print("Data stores to stored_movies.xlsx")
 else:
     print(':)')
 
-df = pd.DataFrame(sorted_res)
-df.to_excel('sorted_movies.xlsx', index=False)
-print("Data stores to stored_movies.xlsx")
