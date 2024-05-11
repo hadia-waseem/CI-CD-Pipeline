@@ -28,12 +28,12 @@ jobs:
 
       - name: Display top 10 movies
         run: |
-          head -n 10 CI-CD_workflows/Basic_ETLs/sorted_movies.xlsx
+          head -n 10 CI-CD_workflows/Basic_ETLs/data/sorted_movies.xlsx
       - name: Commit and push changes
         run: |
           git config --local user.email "hadiawaseem22@gmail.co"
           git config --local user.name "hadia-waseem"
-          git add CI-CD_workflows/Basic_ETLs/sorted_movies.xlsx
+          git add CI-CD_workflows/Basic_ETLs/data/sorted_movies.xlsx
           git commit -m "Add sorted movies data"
           git push
       
