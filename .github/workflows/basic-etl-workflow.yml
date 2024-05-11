@@ -11,20 +11,20 @@ jobs:
 
     steps:
       - name : checkout code for workflow
-      - uses : actions/checkout@v2
+        uses : actions/checkout@v2
 
       - name : setup python env
-      - uses : actions/setup-python@v5
+        uses : actions/setup-python@v5
         with : 
           python-version :  '3.11'
 
       - name : install python dependices
-      - run : |
+        run : |
           python -m pip install --upgrade pip
           pip install -r CI-CD_workflows/Basic_ETLs/req.txt
           
       - name: Run Python script
-      - run: python CI-CD_workflows/Basic_ETLs/basic_etl.py
+        run: python CI-CD_workflows/Basic_ETLs/basic_etl.py
 
       - name: Display top 10 movies
         run: |
