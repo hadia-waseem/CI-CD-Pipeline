@@ -1,0 +1,39 @@
+name : Basic Flow Hehe
+
+on: 
+  push:
+    branches:
+      - DEV
+
+jobs:
+  etl-workflow-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name : checkout code for workflow
+      - run : actions/checkout@v2
+
+      - name : setup python env
+      - uses : actions/setup-python@v5
+        with : 
+          python-version :  '3.11'
+
+      - name : install python dependices
+      - run : |
+          python -m pip install --upgrade pip
+          pip install -r CI-CD_workflows/Basic_ETLs/req.txt
+          
+      - name: Run Python script
+      - run: python CI-CD_workflows/Basic_ETLs/basic_etl.py
+
+      - name: Display top 10 movies
+        run: |
+          head -n 10 CI-CD_workflows/Basic_ETLs/sorted_movies.xlsx
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "hadiawaseem22@gmail.co"
+          git config --local user.name "hadia-waseem"
+          git add CI-CD_workflows/Basic_ETLs/sorted_movies.xlsx
+          git commit -m "Add sorted movies data"
+          git push
+      
