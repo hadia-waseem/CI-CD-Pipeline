@@ -25,7 +25,8 @@ if response.status_code == 200:
   res_arr = response.json()
   sorted_res= sort(res_arr, 'rating')
   df = pd.DataFrame(sorted_res)
-  #df.to_excel('C:/Users/Furqan/Desktop/Environment/Environments/CI-CD_workflows/Basic_ETLs/data/sorted_movies.xlsx', index=False)
+  file_path = r"C:\Users\Furqan\Desktop\Environment\Environments\CI-CD_workflows\Basic_ETLs\data\sorted_movies.xlsx"
+  df.to_excel(file_path, index=False)
   print("Data stores to stored_movies.xlsx")
 else:
     print(':)')
